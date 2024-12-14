@@ -13,7 +13,7 @@
 | 0x18 | u32 | Unknown |
 | 0x1c | u32 | Unknown |
 | 0x20 | u32 | Unknown |
-| 0x24 | u32 | Byte layout for each pixel, RGBA5551 = 0x00, RGBA4444 = 0x01, RGB565 = 0x02 |
+| 0x24 | u32 | Byte layout for each pixel - refer to table below |
 | 0x28 | u32 | Unknown |
 | 0x2c | u32 | Unknown |
 | 0x30 | u32 | Unknown |
@@ -22,3 +22,13 @@
 | 0x3c | u32 | Unknown |
 
 The rest is the raw pixel data.
+
+## Byte layout types
+
+| Enum | Pixel type       |
+| ---- | ---------------- |
+| 0    | RGBA5551         |
+| 1    | RGBA4444         |
+| 2    | RGB565           |
+| 6    | 1-bit (inverted) |
+| 7    | A8               |
