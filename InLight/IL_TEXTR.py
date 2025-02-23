@@ -38,13 +38,16 @@ with open((filename + ".tex"), "rb") as file:
         rawimage = Image.frombytes("RGBA", (width, height), imagedata, "raw", "RGBA;4B")
         # quick hack to get around PIL's lack of little-endian RGBA4 support
         rawimage = Image.merge('RGBA', rawimage.split()[::-1])
+        rawimage = rawimage.transpose(method=Image.Transpose.FLIP_TOP_BOTTOM)
         rawimage.save((filename + ".png"))
     if bytelayout == 0:
         print("ABGR8888")
         rawimage = Image.frombytes("RGBA", (width, height), imagedata, "raw", "ABGR")
+        rawimage = rawimage.transpose(method=Image.Transpose.FLIP_TOP_BOTTOM)
         rawimage.save((filename + ".png"))
     if bytelayout == 2:
         print("ARGB1555")
         imagedata_swapped = BytesIO(rgba5551_to_argb1555(imagedata)).read()
         rawimage = Image.frombytes("RGBA", (width, height), imagedata_swapped, "raw", "BGRA;15") # note - expects big endian. LeapFrog textures tend to be little-endian.
+        rawimage = rawimage.transpose(method=Image.Transpose.FLIP_TOP_BOTTOM)
         rawimage.save((filename + ".png"))

@@ -71,4 +71,4 @@ with open((filename + ".oot"), "rb") as file:
         image_crop.show()
     else:
         # debug string that is printed as yellow
-        print("\033[1;33mDebug: This texture is stored in unimplemented format " + str(bytelayout) + ". Please paste this message into a new issue on GitHub and include a zip file of your affected samples.\033[1;37m")
+        print(f"\033[1;33mDebug: This texture is stored in unimplemented format {str(bytelayout)}. Please paste this message into a new issue on GitHub and include a zip file of your affected samples.\033[1;37m")
