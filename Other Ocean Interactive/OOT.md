@@ -13,7 +13,7 @@
 | 0x18 | u32 | Unknown |
 | 0x1c | u32 | Unknown |
 | 0x20 | u32 | Unknown |
-| 0x24 | u32 | Byte layout for each pixel, RGBA5551 = 0x00, RGBA4444 = 0x01, RGB565 = 0x02 |
+| 0x24 | u32 | Byte layout for each pixel - refer to table below |
 | 0x28 | u32 | Unknown |
 | 0x2c | u32 | Unknown |
 | 0x30 | u32 | Unknown |
@@ -23,10 +23,19 @@
 
 The rest is the raw pixel data.
 
+=======
+## Byte layout types
+
+| Enum | Pixel type       |
+| ---- | ---------------- |
+| 0    | RGBA5551         |
+| 1    | RGBA4444         |
+| 2    | RGB565           |
+| 6    | 1-bit (inverted) |
+| 7    | A8               |
+
+
 Some example decoded oot files:
-
-
-
 
 <img width="56" height="52" alt="hamster2" src="https://github.com/user-attachments/assets/01126c64-e7ea-4b82-a7f7-83545d86b2a6" />
 <img width="72" height="64" alt="hamster1" src="https://github.com/user-attachments/assets/357b00f2-a29d-47cc-8eec-8c92679fa056" />
